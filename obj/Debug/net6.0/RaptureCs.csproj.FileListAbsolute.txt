@@ -1,0 +1,15 @@
+C:\Users\jlwest5600\Documents\RaptureCs\bin\Debug\net6.0\RaptureCs.exe
+C:\Users\jlwest5600\Documents\RaptureCs\bin\Debug\net6.0\RaptureCs.deps.json
+C:\Users\jlwest5600\Documents\RaptureCs\bin\Debug\net6.0\RaptureCs.runtimeconfig.json
+C:\Users\jlwest5600\Documents\RaptureCs\bin\Debug\net6.0\RaptureCs.dll
+C:\Users\jlwest5600\Documents\RaptureCs\bin\Debug\net6.0\RaptureCs.pdb
+C:\Users\jlwest5600\Documents\RaptureCs\obj\Debug\net6.0\RaptureCs.csproj.AssemblyReference.cache
+C:\Users\jlwest5600\Documents\RaptureCs\obj\Debug\net6.0\RaptureCs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jlwest5600\Documents\RaptureCs\obj\Debug\net6.0\RaptureCs.AssemblyInfoInputs.cache
+C:\Users\jlwest5600\Documents\RaptureCs\obj\Debug\net6.0\RaptureCs.AssemblyInfo.cs
+C:\Users\jlwest5600\Documents\RaptureCs\obj\Debug\net6.0\RaptureCs.csproj.CoreCompileInputs.cache
+C:\Users\jlwest5600\Documents\RaptureCs\obj\Debug\net6.0\RaptureCs.dll
+C:\Users\jlwest5600\Documents\RaptureCs\obj\Debug\net6.0\refint\RaptureCs.dll
+C:\Users\jlwest5600\Documents\RaptureCs\obj\Debug\net6.0\RaptureCs.pdb
+C:\Users\jlwest5600\Documents\RaptureCs\obj\Debug\net6.0\RaptureCs.genruntimeconfig.cache
+C:\Users\jlwest5600\Documents\RaptureCs\obj\Debug\net6.0\ref\RaptureCs.dll
