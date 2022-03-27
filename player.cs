@@ -106,14 +106,24 @@ namespace Rapture{
         }
 
         public void Inventory(){
+            Console.WriteLine($"{Name}'s Inventory");
+            Console.WriteLine("---------------------");
             foreach(Item item in items){
                 Console.WriteLine(item.Name);
             }
+            Console.WriteLine("---------------------");
         }
 
         public void Take(Item item){
             items.Add(item);
             EventStatter(item.OnPickup);
+        }
+
+        public void Drop(string itemRemoval){
+            Item itemRemoved = items.Single(item => item.Name.ToLower() == itemRemoval);
+            Console.WriteLine(itemRemoved.Name);
+            items.RemoveAll(item=> item == itemRemoved);
+            location.AddItem(itemRemoved);
         }
 
         public void GetPlayerState(){

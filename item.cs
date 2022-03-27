@@ -12,6 +12,11 @@ namespace Rapture{
             set{_onPickup = value;}
         }
 
+        public Item(string name, string onPickup){
+            Name = name;
+            OnPickup = onPickup;
+        }
+
         
 
     }

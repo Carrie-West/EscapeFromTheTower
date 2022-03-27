@@ -10,6 +10,16 @@ namespace Rapture{
             return _randomEvents[index];
         }
 
+        private List<Item> _items = new List<Item>();
+
+        public void RemoveItem(Item itemRemovable){
+            _items.RemoveAll(item => item.Name == itemRemovable.Name);
+        }
+
+        public void AddItem(Item itemAdded){
+            _items.Add(itemAdded);
+        }
+
         private string _name;
 
         public string Name{

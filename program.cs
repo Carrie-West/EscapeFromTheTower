@@ -48,9 +48,12 @@ namespace Rapture{
             Console.WriteLine(start.EventText);
 
             player.Go(coach);
-            player.Take(items.Single(items=> items.Name =="Magazine"));
-            player.Inventory();
-            player.GetPlayerState();
+            //while true only for testing purposes
+            while (true){
+                Console.WriteLine("\n");
+                handleCommand(Console.ReadLine(), player, items, locations);
+            }
+
         }
 
         static List<Location> LocationInit(){
@@ -88,6 +91,47 @@ namespace Rapture{
 
             return events;
         }
+    
+        static void handleCommand(string command, Player player, List<Item> items, List<Location> locations){
+            string[] components = command.Split(" ");
+
+            switch(components[0].ToLower()){
+                case "take":
+                    string itemName = components[1].ToLower();
+                    if (items.Any(item => item.Name.ToLower() == itemName)){
+                        player.Take(items.Single(item => item.Name.ToLower() == itemName));
+                    }else{
+                        Console.WriteLine("Sorry, don't know what you're referring to.");
+                    }
+                    break;
+                case "drop":
+                    itemName = components[1].ToLower();
+                    if (player.items.Any(item => item.Name.ToLower() == itemName)){
+                        player.Drop(itemName);
+                    }else{
+                        Console.WriteLine("Sorry, don't know what you're referring to.");
+                    }
+                    break;
+                case "go":
+                    string locationName = components[1].ToLower();
+                    if (locations.Any(location => location.Name.ToLower() == locationName)){
+                        player.Go(locations.Single(location => location.Name.ToLower() == locationName));
+                    }else{
+                        Console.WriteLine("Sorry, don't know what you're referring to.");
+                    }
+                    break;
+                case "look":
+                    player.LookAround();
+                    break;
+                case "stats":
+                    player.GetPlayerState();
+                    break;
+                case "inventory":
+                    player.Inventory();
+                    break;
+            }
+        }
+
     }
 
 }
