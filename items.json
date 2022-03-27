@@ -1,0 +1,11 @@
+[
+    {"Name": "Magazine",
+    "Description": "All the juiciest details, the hottest goss.",
+    "OnPickup": "Charisma 1",
+    "OnDrop": "Charisma -1"},
+    {"Name": "Manual",
+    "Description": "Every exit (that they'd tell *you* about) and emergency procedure imaginable, suck up all that knowledge you little nerd.",
+    "OnPickup": "Intelligence 1",
+    "OnDrop": "Intelligence -1"
+    }
+]

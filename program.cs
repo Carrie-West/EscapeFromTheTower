@@ -11,7 +11,7 @@ namespace Rapture{
 
         static void Main(string[] args){
             Console.Clear();
-            string title = @"   
+            string title = @"         
     ______________________________________________________________________
    /    _____               _____  _________  _    _   _____    ______    \
   /    |  __ \      /\     |  __ \ \__   __/ | |  | | |  __ \  |  ____|    \
@@ -19,13 +19,16 @@ namespace Rapture{
    \   |  _  /    / /\ \   |  ___/    | |    | |  | | |  _  /  |  __|     /
     \  | | \ \   / ____ \  | |        | |    | |__| | | | \ \  | |____   /
      \ |_|  \_\ /_/    \_\ |_|        |_|     \____/  |_|  \_\ |______| /
-      \________________________________________________________________/ ";
+      \________________________________________________________________/ 
+      
+      ";
 
 
-            Console.WriteLine(title + '\n');
+            Console.WriteLine(title);
             List<RandomEvent> randomEvents = RandomInit();
             List<PlotEvent> plotEvents = PlotInit();
             List<Location> locations = LocationInit();
+            List<Item> items = ItemInit();
             
 
             var coach = locations.Single(location => location.Name == "Coach");
@@ -39,9 +42,15 @@ namespace Rapture{
 
 
             player.GetPlayerState();
-            Console.WriteLine(plotEvents[0].EventText + '\n');
+
+            var start = plotEvents.Single(plotEvent => plotEvent.Name == "Start");
+
+            Console.WriteLine(start.EventText);
 
             player.Go(coach);
+            player.Take(items.Single(items=> items.Name =="Magazine"));
+            player.Inventory();
+            player.GetPlayerState();
         }
 
         static List<Location> LocationInit(){
@@ -51,6 +60,15 @@ namespace Rapture{
             List<Location>locations = JsonSerializer.Deserialize<List<Location>>(jsonString);
 
             return locations;
+        }
+
+        static List<Item> ItemInit(){
+            string fileName = "items.json";
+            string jsonString = File.ReadAllText(fileName);
+
+            List<Item>items = JsonSerializer.Deserialize<List<Item>>(jsonString);
+
+            return items;
         }
 
         static List<RandomEvent> RandomInit(){

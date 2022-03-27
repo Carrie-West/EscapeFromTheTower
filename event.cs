@@ -7,14 +7,21 @@ interface Event{
 
 class PlotEvent : Event{
 
+    private string _name;
 
+    public string Name{
+        get{return _name;}
+        private set{_name = value;}
+
+    }
     public string EventText{
         get;
         set;
     }
 
-    public PlotEvent(string eventText){
+    public PlotEvent(string eventText, string name){
         EventText = eventText;
+        Name = name;
 
     }
 }

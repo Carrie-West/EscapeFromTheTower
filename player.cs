@@ -37,6 +37,10 @@ namespace Rapture{
 
         public Location location;
 
+        public List<Item> items = new List<Item>();
+
+
+
 
 
         public Player(string name){
@@ -44,16 +48,7 @@ namespace Rapture{
         
         }
 
-        public void GetPlayerState(){
-            Console.WriteLine($"\n{Name}\n"+
-            "---------------------\n" + 
-            $"Strength: {Strength}\n" +
-            $"Intelligence: {Intelligence}\n" +
-            $"Luck: {Luck}\n" +
-            $"Charisma: {Charisma}\n"
-            );
 
-        }
         public static Player PlayerInit(string playerName){
             
             Player player = new Player(name: playerName);
@@ -104,6 +99,32 @@ namespace Rapture{
         public void Go(Location newLocation){
             location = newLocation;
             Console.WriteLine(location.Description);
+        }
+
+        public void LookAround(){
+            Console.WriteLine(location.Description);
+        }
+
+        public void Inventory(){
+            foreach(Item item in items){
+                Console.WriteLine(item.Name);
+            }
+        }
+
+        public void Take(Item item){
+            items.Add(item);
+            EventStatter(item.OnPickup);
+        }
+
+        public void GetPlayerState(){
+            Console.WriteLine($"\n{Name}\n"+
+            "---------------------\n" + 
+            $"Strength: {Strength}\n" +
+            $"Intelligence: {Intelligence}\n" +
+            $"Luck: {Luck}\n" +
+            $"Charisma: {Charisma}\n"
+            );
+
         }
     }
 
