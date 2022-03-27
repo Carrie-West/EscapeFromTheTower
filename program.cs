@@ -11,15 +11,18 @@ namespace Rapture{
 
         static void Main(string[] args){
             Console.Clear();
-            string title = "    __________________________________________________________________\n"+
-            "   /    _____             _____  _________ _    _   _____   ______    \\ \n" +
-            "  /    |  __ \\     /\\    |  __ \\ \\__   __/| |  | | |  __ \\ |  ____|    \\ \n"+
-            "  \\    | |__) |   /  \\   | |__) |   | |   | |  | | | |__) || |__       / \n"+
-            "   \\   |  _  /   / /\\ \\  |  ___/    | |   | |  | | |  _  / |  __|     / \n"+
-            "    \\  | | \\ \\  / ____ \\ | |        | |   | |__| | | | \\ \\ | |____   / \n"+
-            "     \\ |_|  \\_\\/_/    \\_\\|_|        |_|    \\____/  |_|  \\_\\|______| / \n"+
-            "      \\____________________________________________________________/ \n";
-            Console.Write(title);
+            string title = @"   
+    ______________________________________________________________________
+   /    _____               _____  _________  _    _   _____    ______    \
+  /    |  __ \      /\     |  __ \ \__   __/ | |  | | |  __ \  |  ____|    \
+  \    | |__) |    /  \    | |__) |   | |    | |  | | | |__) | | |__       / 
+   \   |  _  /    / /\ \   |  ___/    | |    | |  | | |  _  /  |  __|     /
+    \  | | \ \   / ____ \  | |        | |    | |__| | | | \ \  | |____   /
+     \ |_|  \_\ /_/    \_\ |_|        |_|     \____/  |_|  \_\ |______| /
+      \________________________________________________________________/ ";
+
+
+            Console.WriteLine(title + '\n');
             List<RandomEvent> randomEvents = RandomInit();
             List<PlotEvent> plotEvents = PlotInit();
             List<Location> locations = LocationInit();
@@ -31,12 +34,14 @@ namespace Rapture{
             Console.WriteLine($"\nWelcome {name}!\n");
 
             Console.WriteLine("RAPTURE is a Choose-Your-Own adventure game, where you will investigate the mysterious disappearance of your fellow passengers on an airplane 30,000 feet in the air.\n");
-            Player player = Player.PlayerInit(playerName: name, location: coach);
+            Player player = Player.PlayerInit(playerName: name);
             
 
 
             player.GetPlayerState();
-            Console.WriteLine(plotEvents[0].EventText);
+            Console.WriteLine(plotEvents[0].EventText + '\n');
+
+            player.Go(coach);
         }
 
         static List<Location> LocationInit(){

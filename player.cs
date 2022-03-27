@@ -39,14 +39,13 @@ namespace Rapture{
 
 
 
-        public Player(string name, Location location){
+        public Player(string name){
             Name = name;
-            location = location;
         
         }
 
         public void GetPlayerState(){
-            Console.WriteLine($"{Name}\n"+
+            Console.WriteLine($"\n{Name}\n"+
             "---------------------\n" + 
             $"Strength: {Strength}\n" +
             $"Intelligence: {Intelligence}\n" +
@@ -55,9 +54,9 @@ namespace Rapture{
             );
 
         }
-        public static Player PlayerInit(string playerName, Location location){
+        public static Player PlayerInit(string playerName){
             
-            Player player = new Player(name: playerName, location: location);
+            Player player = new Player(name: playerName);
             Console.WriteLine("Now lets learn some more about you. Answer honestly now, I won't know but your conscience will. \n"+
                                 "If push comes to shove, I'd rather rely on brute force to solve a problem than wasting time thinking through it. (y/n)");
             string playerChoice = Console.ReadLine().ToLower();
@@ -100,6 +99,11 @@ namespace Rapture{
 
             }
 
+        }
+        
+        public void Go(Location newLocation){
+            location = newLocation;
+            Console.WriteLine(location.Description);
         }
     }
 
