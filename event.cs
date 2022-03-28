@@ -29,6 +29,13 @@ class PlotEvent : Event{
 class RandomEvent : Event{
     private string _result;
 
+    private int _luck;
+
+    public int Luck{
+        get{return _luck;}
+        set{_luck = value;}
+    }
+
     public string EventText{
         get;
         set;
@@ -40,8 +47,9 @@ class RandomEvent : Event{
 
     }
 
-    public RandomEvent(string eventText, string result){
+    public RandomEvent(string eventText, int luck, string result){
         EventText = eventText;
+        Luck = luck;
         Result = result;
     }
 }

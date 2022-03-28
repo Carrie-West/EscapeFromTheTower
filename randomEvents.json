@@ -1,6 +1,8 @@
-[{"Event Text": "You feel imbued with the strength of 10 wild baboons. +1 STR!",
+[{"EventText": "You feel imbued with the strength of 10 wild baboons. +1 STR!",
+    "Luck": 10,
     "Result" : "Strength 1"
 },
-{"Event Text": "The essence of life drains from your form. -1 STR.",
+{"EventText": "The essence of life drains from your form. -1 STR.",
+    "Luck":1,
     "Result": "Strength -1"}
 ]

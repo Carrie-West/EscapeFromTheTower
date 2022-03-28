@@ -20,6 +20,19 @@ namespace Rapture{
             _items.Add(itemAdded);
         }
 
+
+        private bool _eventPopped = false;
+
+        public bool EventPopped{
+            get{return _eventPopped;}
+            private set{_eventPopped = value;}
+        }
+
+        public void ToggleEventPopped(){
+            EventPopped = !EventPopped;
+        }
+
+
         private string _name;
 
         public string Name{
@@ -37,7 +50,7 @@ namespace Rapture{
         public Location(string name, string description){
             Name = name;
             Description = description;
-            
+            EventPopped = false;
         }
 
     }

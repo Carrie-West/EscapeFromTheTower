@@ -12,14 +12,14 @@ namespace Rapture{
         static void Main(string[] args){
             Console.Clear();
             string title = @"         
-    ______________________________________________________________________
-   /    _____               _____  _________  _    _   _____    ______    \
-  /    |  __ \      /\     |  __ \ \__   __/ | |  | | |  __ \  |  ____|    \
-  \    | |__) |    /  \    | |__) |   | |    | |  | | | |__) | | |__       / 
-   \   |  _  /    / /\ \   |  ___/    | |    | |  | | |  _  /  |  __|     /
-    \  | | \ \   / ____ \  | |        | |    | |__| | | | \ \  | |____   /
-     \ |_|  \_\ /_/    \_\ |_|        |_|     \____/  |_|  \_\ |______| /
-      \________________________________________________________________/ 
+           ______________________________________________________________________
+          /    _____               _____  _________  _    _   _____    ______    \
+         /    |  __ \      /\     |  __ \ \__   __/ | |  | | |  __ \  |  ____|    \
+         \    | |__) |    /  \    | |__) |   | |    | |  | | | |__) | | |__       / 
+          \   |  _  /    / /\ \   |  ___/    | |    | |  | | |  _  /  |  __|     /
+           \  | | \ \   / ____ \  | |        | |    | |__| | | | \ \  | |____   /
+            \ |_|  \_\ /_/    \_\ |_|        |_|     \____/  |_|  \_\ |______| /
+             \________________________________________________________________/ 
       
       ";
 
@@ -29,10 +29,12 @@ namespace Rapture{
             List<PlotEvent> plotEvents = PlotInit();
             List<Location> locations = LocationInit();
             List<Item> items = ItemInit();
-            
 
-            var coach = locations.Single(location => location.Name == "Coach");
+
+
+            
             Console.WriteLine("Welcome, player! What is your name?");
+            Console.Write(">");
             string name = Console.ReadLine();
             Console.WriteLine($"\nWelcome {name}!\n");
 
@@ -43,15 +45,17 @@ namespace Rapture{
 
             player.GetPlayerState();
 
-            var start = plotEvents.Single(plotEvent => plotEvent.Name == "Start");
+            TriggerPlotEvent(plotEvents);
 
-            Console.WriteLine(start.EventText);
-
+            
+            var coach = locations.Single(location => location.Name == "Coach");
             player.Go(coach);
+
+
             //while true only for testing purposes
             while (true){
-                Console.WriteLine("\n");
-                handleCommand(Console.ReadLine(), player, items, locations);
+                Console.Write("\n>");
+                HandleCommand(Console.ReadLine(), player, items, locations, randomEvents);
             }
 
         }
@@ -91,8 +95,19 @@ namespace Rapture{
 
             return events;
         }
+
+        static List<PlotEvent> TriggerPlotEvent(List<PlotEvent> plot){
+            PlotEvent development = plot[0];
+
+            Console.Write(development.EventText + "\n");
+
+            plot.RemoveAt(0);
+
+            return plot;
+
+        }
     
-        static void handleCommand(string command, Player player, List<Item> items, List<Location> locations){
+        static void HandleCommand(string command, Player player, List<Item> items, List<Location> locations, List<RandomEvent> randomEvents){
             string[] components = command.Split(" ");
 
             switch(components[0].ToLower()){
@@ -103,6 +118,18 @@ namespace Rapture{
                     }else{
                         Console.WriteLine("Sorry, don't know what you're referring to.");
                     }
+                    break;
+                case "roll":
+
+                    if (player.location.EventPopped == false){
+                        var random = new Random();
+                        List<RandomEvent> rando = randomEvents.Where(rando => rando.Luck < player.Luck).ToList();
+
+                        player.EventPop(rando[random.Next(rando.Count)]);
+                    }else{
+                        Console.WriteLine("Sorry, looks like you've run this place dry. At least while you're here looking.");
+                    }
+
                     break;
                 case "drop":
                     itemName = components[1].ToLower();

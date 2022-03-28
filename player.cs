@@ -52,8 +52,8 @@ namespace Rapture{
         public static Player PlayerInit(string playerName){
             
             Player player = new Player(name: playerName);
-            Console.WriteLine("Now lets learn some more about you. Answer honestly now, I won't know but your conscience will. \n"+
-                                "If push comes to shove, I'd rather rely on brute force to solve a problem than wasting time thinking through it. (y/n)");
+            Console.Write("Now lets learn some more about you. Answer honestly now, I won't know but your conscience will. \n"+
+                                "If push comes to shove, I'd rather rely on brute force to solve a problem than wasting time thinking through it. (y/n)\n>");
             string playerChoice = Console.ReadLine().ToLower();
             if (playerChoice == "y"){
                 player.Strength++;
@@ -61,7 +61,7 @@ namespace Rapture{
                 player.Intelligence++;
             }
 
-            Console.WriteLine("I can't really talk my way out of situations, but a good hope and a prayer seems to help my chances. (y/n)");
+            Console.Write("I can't really talk my way out of situations, but a good hope and a prayer seems to help my chances. (y/n)\n>");
             playerChoice = Console.ReadLine().ToLower();
             if (playerChoice == "y"){
                 player.Luck++;
@@ -97,7 +97,12 @@ namespace Rapture{
         }
         
         public void Go(Location newLocation){
+            if (location != null){
+                location.ToggleEventPopped();
+            }
             location = newLocation;
+            Console.WriteLine(location.Name.ToUpper());
+            Console.WriteLine("--------------------");
             Console.WriteLine(location.Description);
         }
 
@@ -124,6 +129,14 @@ namespace Rapture{
             Console.WriteLine(itemRemoved.Name);
             items.RemoveAll(item=> item == itemRemoved);
             location.AddItem(itemRemoved);
+        }
+
+        public void EventPop(RandomEvent rando){
+            Console.WriteLine(rando.EventText);
+
+            EventStatter(rando.Result);
+
+            location.ToggleEventPopped();
         }
 
         public void GetPlayerState(){
