@@ -1,11 +1,13 @@
 [
     {"Name": "Magazine",
-    "Description": "All the juiciest details, the hottest goss.",
+    "Description": "A MAGAZINE is lying on the floor.",
     "OnPickup": "Charisma 1",
-    "OnDrop": "Charisma -1"},
+    "OnDrop": "Charisma -1",
+    "DefaultLocation": "Coach"},
     {"Name": "Manual",
-    "Description": "Every exit (that they'd tell *you* about) and emergency procedure imaginable, suck up all that knowledge you little nerd.",
+    "Description": "A MANUAL is flipped open on the floor.",
     "OnPickup": "Intelligence 1",
-    "OnDrop": "Intelligence -1"
+    "OnDrop": "Intelligence -1",
+    "DefaultLocation": "Coach"
     }
 ]

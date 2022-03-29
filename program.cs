@@ -30,6 +30,11 @@ namespace Rapture{
             List<Location> locations = LocationInit();
             List<Item> items = ItemInit();
 
+            foreach (Location location in locations){
+                location.Items = items.Where(item => item.DefaultLocation == location.Name).ToList();
+                
+            }
+
 
 
             
@@ -113,10 +118,10 @@ namespace Rapture{
             switch(components[0].ToLower()){
                 case "take":
                     string itemName = components[1].ToLower();
-                    if (items.Any(item => item.Name.ToLower() == itemName)){
+                    if (player.location.Items.Any(item => item.Name.ToLower() == itemName)){
                         player.Take(items.Single(item => item.Name.ToLower() == itemName));
                     }else{
-                        Console.WriteLine("Sorry, don't know what you're referring to.");
+                        Console.WriteLine("Sorry, I don't see that anywhere around here.");
                     }
                     break;
                 case "roll":
@@ -136,15 +141,15 @@ namespace Rapture{
                     if (player.items.Any(item => item.Name.ToLower() == itemName)){
                         player.Drop(itemName);
                     }else{
-                        Console.WriteLine("Sorry, don't know what you're referring to.");
+                        Console.WriteLine("Sorry, I don't see you holding that.");
                     }
                     break;
                 case "go":
                     string locationName = components[1].ToLower();
-                    if (locations.Any(location => location.Name.ToLower() == locationName)){
+                    if (locations.Any(location => location.Name.ToLower() == locationName) && locationName != player.location.Name.ToLower()){
                         player.Go(locations.Single(location => location.Name.ToLower() == locationName));
                     }else{
-                        Console.WriteLine("Sorry, don't know what you're referring to.");
+                        Console.WriteLine("Sorry, can't go there.");
                     }
                     break;
                 case "look":

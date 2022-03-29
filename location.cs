@@ -12,6 +12,11 @@ namespace Rapture{
 
         private List<Item> _items = new List<Item>();
 
+        public List<Item> Items{
+            get{return _items;}
+            set{_items = value;}
+        }
+
         public void RemoveItem(Item itemRemovable){
             _items.RemoveAll(item => item.Name == itemRemovable.Name);
         }
@@ -45,6 +50,14 @@ namespace Rapture{
         public string Description{
             get{return _description;}
             private set{_description = value;}
+        }
+
+        public string paintRoom(){
+            string response = Description;
+            foreach (Item item in Items){
+                response = response + " " + item.Description;
+            }
+            return response;
         }
 
         public Location(string name, string description){

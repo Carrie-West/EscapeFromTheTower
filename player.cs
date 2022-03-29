@@ -103,7 +103,7 @@ namespace Rapture{
             location = newLocation;
             Console.WriteLine(location.Name.ToUpper());
             Console.WriteLine("--------------------");
-            Console.WriteLine(location.Description);
+            Console.WriteLine(location.paintRoom());
         }
 
         public void LookAround(){
@@ -120,13 +120,15 @@ namespace Rapture{
         }
 
         public void Take(Item item){
+            Console.WriteLine($"You pick up the {item.Name.ToUpper()}");
             items.Add(item);
+            location.RemoveItem(item);
             EventStatter(item.OnPickup);
         }
 
         public void Drop(string itemRemoval){
             Item itemRemoved = items.Single(item => item.Name.ToLower() == itemRemoval);
-            Console.WriteLine(itemRemoved.Name);
+            Console.WriteLine($"You dropped the {itemRemoval.ToUpper()}");
             items.RemoveAll(item=> item == itemRemoved);
             location.AddItem(itemRemoved);
         }
