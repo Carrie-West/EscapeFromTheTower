@@ -161,6 +161,19 @@ namespace Rapture{
                 case "inventory":
                     player.Inventory();
                     break;
+                case "help":
+                    Console.Write("      COMMANDS\n"+
+                    "--------------------\n"+
+                    "take (item) - grab an item\n"+
+                    "drop (item) - leave an item\n"+
+                    "inventory - print out your current inventory\n"+
+                    "go (location) - move to a different area\n"+
+                    "roll - trigger a random event (once per room)\n"+
+                    "stats - print out your stats");
+                    break;
+                default:
+                    Console.WriteLine("I don't quite understand what you're getting at. Try HELP for command options.");
+                    break;
             }
         }
 
