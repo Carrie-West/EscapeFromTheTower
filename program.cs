@@ -12,14 +12,14 @@ namespace Rapture{
         static void Main(string[] args){
             Console.Clear();
             string title = @"         
-           ______________________________________________________________________
-          /    _____               _____  _________  _    _   _____    ______    \
-         /    |  __ \      /\     |  __ \ \__   __/ | |  | | |  __ \  |  ____|    \
-         \    | |__) |    /  \    | |__) |   | |    | |  | | | |__) | | |__       / 
-          \   |  _  /    / /\ \   |  ___/    | |    | |  | | |  _  /  |  __|     /
-           \  | | \ \   / ____ \  | |        | |    | |__| | | | \ \  | |____   /
-            \ |_|  \_\ /_/    \_\ |_|        |_|     \____/  |_|  \_\ |______| /
-             \________________________________________________________________/ 
+             ______  _____  _____          _____  ______   ______ _____   ____  __  __   _______ _    _ ______   _______ ______          ________ _____  
+            |  ____|/ ____|/ ____|   /\   |  __ \|  ____| |  ____|  __ \ / __ \|  \/  | |__   __| |  | |  ____| |__   __/ __ \ \        / /  ____|  __ \ 
+            | |__  | (___ | |       /  \  | |__) | |__    | |__  | |__) | |  | | \  / |    | |  | |__| | |__       | | | |  | \ \  /\  / /| |__  | |__) |
+            |  __|  \___ \| |      / /\ \ |  ___/|  __|   |  __| |  _  /| |  | | |\/| |    | |  |  __  |  __|      | | | |  | |\ \/  \/ / |  __| |  _  / 
+            | |____ ____) | |____ / ____ \| |    | |____  | |    | | \ \| |__| | |  | |    | |  | |  | | |____     | | | |__| | \  /\  /  | |____| | \ \ 
+            |______|_____/ \_____/_/    \_\_|    |______| |_|    |_|  \_\\____/|_|  |_|    |_|  |_|  |_|______|    |_|  \____/   \/  \/   |______|_|  \_\
+                                                                                                                                              
+                                                                                                                                              
       
       ";
 
@@ -35,15 +35,13 @@ namespace Rapture{
                 
             }
 
-
-
             
             Console.WriteLine("Welcome, player! What is your name?");
             Console.Write(">");
             string name = Console.ReadLine();
             Console.WriteLine($"\nWelcome {name}!\n");
 
-            Console.WriteLine("RAPTURE is a Choose-Your-Own adventure game, where you will investigate the mysterious disappearance of your fellow passengers on an airplane 30,000 feet in the air.\n");
+            Console.WriteLine("ESCAPE FROM THE TOWER is a Choose-Your-Own adventure game, where you will have to use your wits and skills to get through a dangerous descent to freedom.\n");
             Player player = Player.PlayerInit(playerName: name);
             
 
@@ -53,9 +51,11 @@ namespace Rapture{
             TriggerPlotEvent(plotEvents);
 
             
-            var coach = locations.Single(location => location.Name == "Coach");
-            player.Go(coach);
-
+            var top = locations.Single(location => location.Name == "Top Floor");
+            player.location = top;
+            player.SilentTake(items.Single(item => item.Name.ToLower() == "blindfold"));
+            player.SilentTake(items.Single(item => item.Name.ToLower() == "cuffs"));
+            
 
             //while true only for testing purposes
             while (true){
@@ -136,10 +136,10 @@ namespace Rapture{
                     }
 
                     break;
-                case "drop":
+                case "remove":
                     itemName = components[1].ToLower();
                     if (player.items.Any(item => item.Name.ToLower() == itemName)){
-                        player.Drop(itemName);
+                        player.Remove(itemName);
                     }else{
                         Console.WriteLine("Sorry, I don't see you holding that.");
                     }
@@ -153,7 +153,18 @@ namespace Rapture{
                     }
                     break;
                 case "look":
-                    player.LookAround();
+                    if (player.conditions.Contains("Blinded") == true){
+                        Console.WriteLine("You can't. You can try to FEEL AROUND though, I guess.");
+                    }else{
+                        player.LookAround();
+                    }
+                    break;
+                case "feel":
+                    if (player.conditions.Contains("Restrained") == true){
+                        Console.WriteLine("You are currently restrained.");
+                    }else{
+                        player.FeelAround();
+                    }
                     break;
                 case "stats":
                     player.GetPlayerState();

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jlwest5600\\EscapeFromTheTower\\RaptureCs.csproj": {}
+    "c:\\Users\\jlwest5600\\EscapeFromTheTower\\TowerEscape.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jlwest5600\\EscapeFromTheTower\\RaptureCs.csproj": {
+    "c:\\Users\\jlwest5600\\EscapeFromTheTower\\TowerEscape.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jlwest5600\\EscapeFromTheTower\\RaptureCs.csproj",
-        "projectName": "RaptureCs",
-        "projectPath": "C:\\Users\\jlwest5600\\EscapeFromTheTower\\RaptureCs.csproj",
+        "projectUniqueName": "c:\\Users\\jlwest5600\\EscapeFromTheTower\\TowerEscape.csproj",
+        "projectName": "TowerEscape",
+        "projectPath": "c:\\Users\\jlwest5600\\EscapeFromTheTower\\TowerEscape.csproj",
         "packagesPath": "C:\\Users\\jlwest5600\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jlwest5600\\EscapeFromTheTower\\obj\\",
+        "outputPath": "c:\\Users\\jlwest5600\\EscapeFromTheTower\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jlwest5600\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -39,6 +39,8 @@ namespace Rapture{
 
         public List<Item> items = new List<Item>();
 
+        public List<String> conditions = new List<String>();
+
 
 
 
@@ -91,7 +93,22 @@ namespace Rapture{
                 case "Luck":
                     this.Luck += int.Parse(components[1]);
                     break;
-
+                case "Blinded":
+                    if (components[1] == "Added"){
+                        this.conditions.Add("Blinded");
+                    }else if (components[1] == "Removed"){
+                        this.conditions.Remove("Blinded");
+                    }
+                    break;
+                case "Restrained":
+                    if (components[1] == "Added"){
+                        this.conditions.Add("Restrained");
+                        this.Strength -= 5;
+                    }else if (components[1] == "Removed"){
+                        this.conditions.Remove("Restrained");
+                        this.Strength += 5;
+                    }
+                    break;
             }
 
         }
@@ -110,6 +127,10 @@ namespace Rapture{
             Console.WriteLine(location.Description);
         }
 
+        public void FeelAround(){
+            Console.WriteLine(location.Feel);
+        }
+
         public void Inventory(){
             Console.WriteLine($"{Name}'s Inventory");
             Console.WriteLine("---------------------");
@@ -126,10 +147,18 @@ namespace Rapture{
             EventStatter(item.OnPickup);
         }
 
-        public void Drop(string itemRemoval){
+         public void SilentTake(Item item){
+            items.Add(item);
+            location.RemoveItem(item);
+            EventStatter(item.OnPickup);
+        }
+
+        public void Remove(string itemRemoval){
             Item itemRemoved = items.Single(item => item.Name.ToLower() == itemRemoval);
-            Console.WriteLine($"You dropped the {itemRemoval.ToUpper()}");
+            EventStatter(itemRemoved.OnDrop);
+            Console.WriteLine($"You remove the {itemRemoval.ToUpper()}");
             items.RemoveAll(item=> item == itemRemoved);
+            
             location.AddItem(itemRemoved);
         }
 
@@ -147,8 +176,12 @@ namespace Rapture{
             $"Strength: {Strength}\n" +
             $"Intelligence: {Intelligence}\n" +
             $"Luck: {Luck}\n" +
-            $"Charisma: {Charisma}\n"
+            $"Charisma: {Charisma}\n" +
+            $"Conditions:"
             );
+            foreach(string condition in conditions){
+                Console.WriteLine(condition);
+            }
 
         }
     }

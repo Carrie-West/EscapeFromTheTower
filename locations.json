@@ -1,8 +1,7 @@
 [
-    {"Name": "Coach",
-        "Description": "The beautiful and luxurious life of COACH travel. Rows upon rows of seats close in on your sides, and faded off-white overhead containers consistently threat to bonk your head."
-    },
-    {"Name": "Bathroom",
-        "Description":"Ah, the BATHROOM. A cramped place, a small toilet sits against one wall, with a small mirror and sink on the other."
+    {"Name": "Top Floor",
+        "Description": "Torchlight thinly covers the room. From what you can make out there is a wrought-iron door with a large wall built around it, a series of TOOLS lay across the table next to the seat.",
+        "Feel": "You feel a BLINDFOLD over top your face, as well as the cold stone you have become good friends with."
     }
+
 ]

@@ -12,6 +12,13 @@ namespace Rapture{
             set{_onPickup = value;}
         }
 
+        private string _onDrop;
+        public string OnDrop{
+            get{return _onDrop;}
+            set{_onDrop = value;}
+        }
+
+
         private string _defaultLocation;
         public string DefaultLocation{
             get{return _defaultLocation;}
@@ -24,9 +31,10 @@ namespace Rapture{
             set{_description = value;}
         }
 
-        public Item(string name, string onPickup){
+        public Item(string name, string onPickup, string onDrop){
             Name = name;
             OnPickup = onPickup;
+            OnDrop = onDrop;
         }
 
         

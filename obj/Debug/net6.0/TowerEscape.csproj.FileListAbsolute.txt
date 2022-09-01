@@ -1,0 +1,15 @@
+C:\Users\jlwest5600\EscapeFromTheTower\bin\Debug\net6.0\TowerEscape.exe
+C:\Users\jlwest5600\EscapeFromTheTower\bin\Debug\net6.0\TowerEscape.deps.json
+C:\Users\jlwest5600\EscapeFromTheTower\bin\Debug\net6.0\TowerEscape.runtimeconfig.json
+C:\Users\jlwest5600\EscapeFromTheTower\bin\Debug\net6.0\TowerEscape.dll
+C:\Users\jlwest5600\EscapeFromTheTower\bin\Debug\net6.0\TowerEscape.pdb
+C:\Users\jlwest5600\EscapeFromTheTower\obj\Debug\net6.0\TowerEscape.csproj.AssemblyReference.cache
+C:\Users\jlwest5600\EscapeFromTheTower\obj\Debug\net6.0\TowerEscape.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jlwest5600\EscapeFromTheTower\obj\Debug\net6.0\TowerEscape.AssemblyInfoInputs.cache
+C:\Users\jlwest5600\EscapeFromTheTower\obj\Debug\net6.0\TowerEscape.AssemblyInfo.cs
+C:\Users\jlwest5600\EscapeFromTheTower\obj\Debug\net6.0\TowerEscape.csproj.CoreCompileInputs.cache
+C:\Users\jlwest5600\EscapeFromTheTower\obj\Debug\net6.0\TowerEscape.dll
+C:\Users\jlwest5600\EscapeFromTheTower\obj\Debug\net6.0\refint\TowerEscape.dll
+C:\Users\jlwest5600\EscapeFromTheTower\obj\Debug\net6.0\TowerEscape.pdb
+C:\Users\jlwest5600\EscapeFromTheTower\obj\Debug\net6.0\TowerEscape.genruntimeconfig.cache
+C:\Users\jlwest5600\EscapeFromTheTower\obj\Debug\net6.0\ref\TowerEscape.dll

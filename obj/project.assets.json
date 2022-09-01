@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jlwest5600\\Documents\\RaptureCs\\RaptureCs\\RaptureCs.csproj",
-      "projectName": "RaptureCs",
-      "projectPath": "C:\\Users\\jlwest5600\\Documents\\RaptureCs\\RaptureCs\\RaptureCs.csproj",
+      "projectUniqueName": "C:\\Users\\jlwest5600\\EscapeFromTheTower\\TowerEscape.csproj",
+      "projectName": "TowerEscape",
+      "projectPath": "C:\\Users\\jlwest5600\\EscapeFromTheTower\\TowerEscape.csproj",
       "packagesPath": "C:\\Users\\jlwest5600\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jlwest5600\\Documents\\RaptureCs\\RaptureCs\\obj\\",
+      "outputPath": "C:\\Users\\jlwest5600\\EscapeFromTheTower\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jlwest5600\\AppData\\Roaming\\NuGet\\NuGet.Config"

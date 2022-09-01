@@ -52,6 +52,14 @@ namespace Rapture{
             private set{_description = value;}
         }
 
+        private string _feel;
+
+        public string Feel{
+            get{return _feel;}
+            private set{_feel = value;}
+        }
+        
+
         public string paintRoom(){
             string response = Description;
             foreach (Item item in Items){
@@ -60,9 +68,10 @@ namespace Rapture{
             return response;
         }
 
-        public Location(string name, string description){
+        public Location(string name, string description, string feel){
             Name = name;
             Description = description;
+            Feel = feel;
             EventPopped = false;
         }
 
