@@ -1,5 +1,9 @@
 [
     {"Name": "Start",
         "EventText": "Your eyes flutter open, the first person to ever get a good nap on an airplane.\nSprawled out along the row, you think about how pissed your seat neighbor would be if they were there.\nWait... you DID have a seat neighbor.\n"
+    },
+    {
+        "Name": "Holly",
+        "EventText":"You investigate the sound coming from the bathroom, finding it locked."
     }
 ]
